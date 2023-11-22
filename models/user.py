@@ -1,11 +1,12 @@
 #!/usr/bin/python3
 """This module defines a class User, and import column and string. """
 
-from models.base_model import BaseModel, Base
 from sqlalchemy import Column, String
+from models.base_model import BaseModel, Base
+from sqlalchemy.orm import relationship
 
-class User(BaseModel):
-    """ Class defining a user by various attributes. """
+class User(BaseModel, Base):
+    """ Class that defines a user by various attributes. """
     __tablename__ = 'users'
 
     email = Column(String(128), nullable=False)
