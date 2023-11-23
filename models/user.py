@@ -1,15 +1,23 @@
 #!/usr/bin/python3
-"""This module defines a class User, and import column and string. """
+""" Module defines a class User, and import column and string. """
 
 from sqlalchemy import Column, String
 from models.base_model import BaseModel, Base
 from sqlalchemy.orm import relationship
+from models import storage_type
 
 class User(BaseModel, Base):
     """ Class that defines a user by various attributes. """
-    __tablename__ = 'users'
+    __tablename__ = 'users 
+    if storage_type == 'db':
 
     email = Column(String(128), nullable=False)
     password = Column(String(128), nullable=False)
     first_name = Column(String(128), nullable=True)
     last_name = Column(String(128), nullable=True)
+
+else:
+        email = ""
+        password = ""
+        first_name = ""
+        last_name = ""
